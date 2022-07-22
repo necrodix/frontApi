@@ -1,0 +1,64 @@
+<ion-content>
+    
+  <ion-grid *ngIf="!this.procesandoAndo">
+    <ion-row class="ion-margin">
+      <ion-col size="12"></ion-col>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-col size="12"></ion-col>
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-col size="12"></ion-col>
+    </ion-row>
+      <ion-row >
+          <ion-col class="ion-padding vertical-center">
+              <ion-grid class="maxForm">
+                  <ion-row class="ion-text-center ion-text-center">
+                      <ion-col>
+                          <ion-label class="TituloGeneral AzulFondo">Bienvenido</ion-label><br>
+                          <ion-label class="SubTituloGeneral GrisClaro">Ingresa a tu cuenta</ion-label>
+                      </ion-col>
+                  </ion-row>
+                  <form [formGroup]="loginForm" (ngSubmit)="autenticar()">
+                      <ion-row>
+                          <ion-col>
+                              <ion-list>
+                                  <ion-item>
+                                      <ion-icon class="icono" slot="start" name="person"></ion-icon>
+                                      <ion-input  class="AzulCielo" formControlName="email" type="text" placeholder="Usuario"></ion-input>
+                                      <ion-text *ngIf="emailNoValido" color="danger">
+                                          
+                                          Ingrese el correo electrónico correctamente
+                                      </ion-text>
+                                  </ion-item>
+
+                                  <ion-item>
+                                      <ion-icon   class="icono" slot="start" name="key-outline"></ion-icon>
+                                      <ion-input class="AzulCielo" formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+                                      <ion-text *ngIf="passwordNoValido" color="danger">
+                                         
+                                      </ion-text>
+                                  </ion-item>
+                              </ion-list>
+                          </ion-col>
+                      </ion-row>
+                   
+                      <ion-row>
+                          <ion-col>
+                              <ion-button type="submit" expand="block" fill="solid" shape="round" [disabled]="loginForm.invalid">
+                                  Ingresar
+                              </ion-button>
+                          </ion-col>
+                      </ion-row>
+                  </form>
+              
+
+              </ion-grid>
+           
+
+          </ion-col>
+      </ion-row>
+
+  </ion-grid>
+
+</ion-content>
